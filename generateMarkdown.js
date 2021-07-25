@@ -4,7 +4,7 @@ function generateMarkdown(data) {
   return `# ${data.title}
 
 # Table of Contents   
-[Username](#username)
+- [Username](#username)
 - [Description](#description)
 - [Usage](#usage)
 - [License](#license)
