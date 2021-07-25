@@ -1,6 +1,4 @@
 
-"[!(https://img.shields.io/github/languages/top/kanema2021/readme-generator)]"
-
 https://user-images.githubusercontent.com/82725636/126911939-a1e4e3ce-4699-4b8a-b704-cf58f725b1fb.mov
 
 https://user-images.githubusercontent.com/82725636/126911941-798ddead-4734-45ca-a49e-e161c0db3f9a.mov
