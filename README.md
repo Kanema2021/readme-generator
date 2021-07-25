@@ -1,4 +1,4 @@
-# README generator
+# README Generator
 
 # Table of Contents   
 - [Username](#username)
