@@ -5,6 +5,11 @@ const fs = require("fs");
 const generateMarkdown = require("./generateMarkdown");
 // const README = ("./README.md")
 
+const mit    = "Licensed under the [MIT License](https://spdx.org/licenses/MIT.html).";
+const isc    = "Licensed under the [ISC License](https://spdx.org/licenses/ISC.html).";
+const gnu    = "Licensed under the [GNU GPLv3 License](https://spdx.org/licenses/GPL-3.0-or-later.html).";
+
+
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -36,12 +41,13 @@ const questions = [
         name: "license",
         message: "What license would you like to use?",
         choices:[
-            "MIT [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)] https://opensource.org/licenses/MIT)", 
-            "ISC [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)",
-            "None",
+            "MIT",
+            "ISC",
+            "GNU",
+            "None"
         ]
     },
-    
+
     {
         type: "input",
         name: "contributing",
@@ -69,9 +75,21 @@ const questions = [
             throw err;
             console.log("you have successfully created a README.md")
     })   
+
+    if(data.license === "GNU"){
+        data.license = gnu;
+    } else if(data.license === "MIT"){
+        data.license = mit;
+    } else if(data.license === "ISC"){
+        data.license = isc;
+    } else {
+        data.license = "This project is currently not licensed."
+    }
 };
 
-// }
+//
+
+
 
 // TODO: Create a function to initialize app
 function init() {
