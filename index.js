@@ -2,7 +2,7 @@
 
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generateMarkdown = ("./generateMarkdown");
+const generateMarkdown = require("./generateMarkdown");
 // const README = ("./README.md")
 
 
@@ -10,51 +10,52 @@ const generateMarkdown = ("./generateMarkdown");
 const questions = [
     {
         type: "input",
-        name: "Title",
+        name: "title",
         message: "What is the title of your project?",
     },
    
     {
         type: "input",
-        name: "Username",
+        name: "username",
         message: "What is your username?",
     },
+
     {
         type: "input",
-        name: "Description",
+        name: "description",
         message: "Describe your project.",
     },
     
     {
         type: "input",
-        name: "Usage",
-        message: "What is the projec useful for?",
+        name: "usage",
+        message: "What is the project useful for?",
     },
     {
         type: "list",
-        name: "License",
+        name: "license",
         message: "What license would you like to use?",
         choices:[
             "MIT [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)] https://opensource.org/licenses/MIT)", 
             "ISC [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)",
             "None",
         ]
-       
     },
+    
     {
         type: "input",
-        name: "Contributing",
+        name: "contributing",
         message: "Who has contributed to this project?",
     },
 
     {
         type: "input",
-        name: "Tests",
+        name: "tests",
         message: "What tests did you run when creating this project?",
     },
     {
         type: "input",
-        name: "Installation",
+        name: "installation",
         message: "What installation process did you use?",
     },
    
@@ -62,15 +63,12 @@ const questions = [
 
 
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {
-    const writeToFile = (fileName, data) =>{
-        fs.writeFile(fileName, data, (err) =>{
+    function writeToFile(fileName, data) {
+        fs.writeFile('./README.md', data, (err) =>{
             if (err)
             throw err;
             console.log("you have successfully created a README.md")
-
-    })
-    
+    })   
 };
 
 // }
@@ -79,9 +77,10 @@ const questions = [
 function init() {
     inquirer.prompt(questions)
     .then(function(data) {
-        // console.log('inquirerResponse')
-writeToFile("./README.md",(data));
+        console.log(data)
+writeToFile('./README.md', (generateMarkdown(data)));
     })
 }
 
 init();
+
