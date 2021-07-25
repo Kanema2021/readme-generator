@@ -5,10 +5,8 @@ const fs = require("fs");
 const generateMarkdown = require("./generateMarkdown");
 // const README = ("./README.md")
 
-const mit    = "Licensed under the [MIT License](https://spdx.org/licenses/MIT.html).";
-const isc    = "Licensed under the [ISC License](https://spdx.org/licenses/ISC.html).";
-const gnu    = "Licensed under the [GNU GPLv3 License](https://spdx.org/licenses/GPL-3.0-or-later.html).";
-
+const mit    = "[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)] https://opensource.org/licenses/MIT)";
+const isc    = "[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)";
 
 
 // TODO: Create an array of questions for user input
@@ -41,9 +39,8 @@ const questions = [
         name: "license",
         message: "What license would you like to use?",
         choices:[
-            "MIT",
-            "ISC",
-            "GNU",
+            "MIT [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./Licenses/mit)",
+            "ISC [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](./Licenses/isc)",
             "None"
         ]
     },
@@ -76,9 +73,7 @@ const questions = [
             console.log("you have successfully created a README.md")
     })   
 
-    if(data.license === "GNU"){
-        data.license = gnu;
-    } else if(data.license === "MIT"){
+      if(data.license === "MIT"){
         data.license = mit;
     } else if(data.license === "ISC"){
         data.license = isc;
